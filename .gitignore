@@ -1,0 +1,48 @@
+# Ignore object files and executable
+*.o
+*.out
+*.exe
+*.obj
+
+# Ignore build and temporary directories
+/build/
+bin/
+temp/
+dist/
+Debug/
+Release/
+
+# Ignore OS-specific files
+.DS_Store               # macOS
+Thumbs.db               # Windows
+desktop.ini             # Windows
+*.swp                   # Vim swap files
+
+# Ignore C++ debugging and profiling files
+*.d
+*.gcda
+*.gcno
+*.gcov
+
+# Ignore log and temp files
+*.log
+*.tmp
+*.bak
+*.swp
+
+# Ignore editor/project-specific files
+/.vscode/               # Visual Studio Code settings
+.idea/                  # JetBrains IDEs
+*.code-workspace
+*.user                  # Visual Studio user settings
+
+
+
+*~
+*.bak
+
+# Ignore test binaries and artifacts
+/tests/*.o
+/tests/*.out
+/tests/*.log
+/tests/bin/
