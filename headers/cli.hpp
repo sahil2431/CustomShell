@@ -5,7 +5,7 @@
 #include <vector>
 
 // Function declarations for the CLI
+void processCommand(std::vector<std::string>& args, std::vector<std::string>& history);
 void cliLoop();
-void processCommand(const std::vector<std::string>& args, std::vector<std::string>& history);
 
 #endif  // CLI_HPP

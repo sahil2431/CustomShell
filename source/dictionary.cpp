@@ -1,8 +1,8 @@
 #include "dictionary.hpp"
+#include "calculator.hpp"
 #include "commands.hpp"
 
-
-std::unordered_map<std::string , std::variant<CommandNoArgs , CommandWithArgs>> commands = {
+std::unordered_map<std::string, std::variant<CommandNoArgs, CommandWithArgs>> commands = {
     {"greet" , greetCommand},
     {"cd" , changeDir},
     {"pwd" , pwdCommand},
@@ -16,9 +16,13 @@ std::unordered_map<std::string , std::variant<CommandNoArgs , CommandWithArgs>> 
     {"echo" , displayMessage},
     {"read" , readFile},
     {"write" , writeFile},
+    {"env" , showEnvironmentVaribles},
+    {"calc" , calculator },
+    { "copy" , copyFile },
+	{ "move" , moveFile }
 };
 
-std::unordered_map<std::string , std::string> allias = {
+std::unordered_map<std::string, std::string> allias = {
     {"dir" , "pwd"},
     {"cdir" , "mkdir"},
     {"cfile" , "touch"},
@@ -26,5 +30,7 @@ std::unordered_map<std::string , std::string> allias = {
     {"cls" , "clear"},
     {"mdir" , "mkdir"},
     {"mfile" , "touch"},
-    {"display" , "echo"}
+    {"display" , "echo"},
+    {"e" , "exit"},
+    {"home" , "cd ~"}
 };
