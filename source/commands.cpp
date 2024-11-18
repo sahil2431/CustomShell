@@ -32,7 +32,7 @@ void greetCommand(const vector<string> args)
 // Function for the cd command (c)
 void changeDir(const std::vector<std::string> args)
 {
-    if (args.size() < 2)
+    if (args.size() < 2 || args[1] == "")
     {
         cout << RED << "Error: No directory specified\n"
              << RESET;
@@ -310,11 +310,11 @@ void writeFile(const vector<string> args)
     {
         // File could not be opened, check the error
         char buffer[256];
-#ifdef _WIN32
+    #ifdef _WIN32
         strerror_s(buffer, sizeof(buffer), errno);
-#else
+    #else
         strerror_r(errno, buffer, sizeof(buffer));
-#endif
+    #endif
         cout << RED << "Error: Cannot write to file. Reason: " << buffer << RESET << endl;
 
         return;
@@ -339,6 +339,29 @@ void writeFile(const vector<string> args)
     }
 
     file.close();
+    cout << GREEN << "File saved successfully." << RESET << endl;
+}
+
+void editFile(const vector<string> args) {
+    if (args.size() < 2)
+    {
+        cout << RED << "Error: No file name provided.\n"
+             << RESET;
+        return;
+    }
+    if (args.size() > 2)
+    {
+        cout << RED << "Error: Too many arguments.\n"
+             << RESET;
+        return;
+    }
+
+    #ifdef __WIN32
+        system(("notepad " + args[1]).c_str());
+    #else
+        system(("nano " + args[1]).c_str());
+    #endif
+
     cout << GREEN << "File saved successfully." << RESET << endl;
 }
 

@@ -44,8 +44,8 @@ void processCommand(std::vector<std::string>& args, std::vector<std::string>& hi
 		exit(0);
 	}
 	else if (args[0] == "history") {
-		for (std::string command : history) {
-			std::cout << command << std::endl;
+		for (size_t i = 0 ; i<history.size()-1 ;i++ ) {
+			std::cout << history[i] << std::endl;
 		}
 	} 
 	else {
@@ -61,7 +61,12 @@ void processCommand(std::vector<std::string>& args, std::vector<std::string>& hi
 			}
 		}
 		else {
-			std::cout<<RED << "Command not found\n"<<RESET;
+			std::string commmand ;
+			for(auto i : args) {
+				commmand += i + " ";
+			}
+
+			system(commmand.c_str());
 		}
 	}
 }
@@ -75,11 +80,11 @@ void cliLoop() {
 		std::getline(std::cin, input);
 
 		if (input.length() == 0) continue;
+		history.push_back(input);
 		if (allias.find(input) != allias.end()) {
 			input = allias[input];
 		}
 		std::vector<std::string> args = parse_input(input);
 		processCommand(args, history);
-		history.push_back(input);
 	}
 }

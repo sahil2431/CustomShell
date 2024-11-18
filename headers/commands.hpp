@@ -24,6 +24,7 @@ void writeFile(const vector<string> args); //w
 void copyFile(const vector<string> args); //w
 void moveFile(const vector<string> args); //w(if distination is not present then it renames the file with dir name)
 
+void editFile(const vector<string> args);
 
 void showEnvironmentVaribles(const vector<string> args);
 

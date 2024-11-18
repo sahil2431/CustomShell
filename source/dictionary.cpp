@@ -19,7 +19,8 @@ std::unordered_map<std::string, std::variant<CommandNoArgs, CommandWithArgs>> co
     {"env" , showEnvironmentVaribles},
     {"calc" , calculator },
     { "copy" , copyFile },
-	{ "move" , moveFile }
+	{ "move" , moveFile },
+    {"edit" , editFile}
 };
 
 std::unordered_map<std::string, std::string> allias = {
